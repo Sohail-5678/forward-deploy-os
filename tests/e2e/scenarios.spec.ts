@@ -34,6 +34,8 @@ test("re-running scenario 1 posts nothing and prevents every duplicate", async (
   await openScenario(page, 1);
   await runToEnd(page);
   await page.getByRole("button", { name: "Run again" }).click();
+  // The previous run is cleared at once; wait for the new one to finish.
+  await expect(page.getByTestId("run-status").getByText("DONE")).toBeHidden();
   await expect(page.getByTestId("run-status").getByText("DONE")).toBeVisible({ timeout: 120_000 });
   expect(await summary(page, "Posted")).toBe(0);
   expect(await summary(page, "Duplicates prevented")).toBe(6);

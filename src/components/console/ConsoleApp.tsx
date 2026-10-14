@@ -158,10 +158,11 @@ function RunHeader() {
   const running = useConsoleState((s) => s.running);
   const held = useConsoleState((s) => s.held);
   const replayOnly = useConsoleState((s) => s.replayOnly);
+  const busy = useConsoleState((s) => s.busy);
   const { events, revealed } = useConsoleState((s) => ({ events: s.events, revealed: s.revealed }));
   const engineMs = useMemo(() => ofType(events.slice(0, revealed), "NODE_FINISHED").reduce((a, e) => a + (e.ms ?? 0), 0), [events, revealed]);
   const status: Status = !graph ? "idle" : held && graph.status === "RUNNING" ? "suspended" : graph.status === "RUNNING" && !running ? "idle" : (STATUS_FOR[graph.status] ?? "idle");
-  const word = !graph ? "NO RUN YET" : held && graph.status === "RUNNING" ? "PAUSED" : graph.status === "RUNNING" && !running ? "READY" : graph.status === "SUSPENDED_HITL" ? "NEEDS A HUMAN" : undefined;
+  const word = !graph ? (busy ? "STARTING" : "NO RUN YET") : held && graph.status === "RUNNING" ? "PAUSED" : graph.status === "RUNNING" && !running ? "READY" : graph.status === "SUSPENDED_HITL" ? "NEEDS A HUMAN" : undefined;
   return (
     <div className="border-b border-line px-3 py-2.5">
       <div className="flex items-center justify-between gap-2">

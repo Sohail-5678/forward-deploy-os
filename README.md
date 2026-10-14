@@ -6,8 +6,8 @@
 
 A self-healing ETL pipeline and browser agent for the work forward-deployed engineers actually do: a vendor's export changes overnight, two documents disagree about money, and the system of record is a 2009 web portal with no API. It runs entirely in your browser (a Web Worker), costs $0 to host, and every number it claims is re-runnable.
 
-- **Live demo:** _added after deployment_
-- **Watch the 90-second demo:** open the site and press **Play the 90-second demo** (Director Mode runs the real engine on Scenario 5 with captions).
+- **Live demo:** https://forward-deploy-os.vercel.app
+- **Watch the 90-second demo:** https://forward-deploy-os.vercel.app/?play=1 (Director Mode runs the real engine on Scenario 5 with captions).
 
 All data in this repository and on the site is synthetic.
 

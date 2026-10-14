@@ -415,7 +415,8 @@ export class ConsoleController {
       this.store.set({ error: "Add at least one CSV, JSON, PDF or text file to run the sandbox." });
       return false;
     }
-    this.store.set({ busy: true, error: undefined, events: [], revealed: 0, checkpoints: [], suspension: undefined, cursor: undefined, replayOnly: false });
+    // Clear the previous run right away, so nothing on screen describes it while the new one prepares.
+    this.store.set({ busy: true, error: undefined, graph: undefined, runId: undefined, events: [], revealed: 0, checkpoints: [], suspension: undefined, cursor: undefined, replayOnly: false });
     try {
       const transfer: Transferable[] = [];
       const uploads = s.scenario === "sandbox" ? s.uploads.map((u) => (u.bytes ? { ...u, bytes: u.bytes.slice() } : u)) : undefined;
