@@ -295,7 +295,7 @@ function ContractTab() {
         The contract is the target schema the healer maps every export into. Rename columns, change kinds, add custom fields or teach it extra words (aliases). Fields the portal posts can be renamed but not removed.
         {scenario !== "sandbox" && " The five scenarios use contract v1; switch to the sandbox to edit it."}
       </p>
-      <div className="overflow-x-auto rounded-xl border border-line scroll-thin">
+      <div className="overflow-x-auto rounded-xl border border-line scroll-thin" tabIndex={0} role="region" aria-label="Contract fields">
         <table className="w-full min-w-[580px] text-left text-[12.5px]">
           <thead className="bg-white/[0.03] text-[11px] uppercase tracking-wider text-ink-3">
             <tr>

@@ -98,7 +98,8 @@ const RECORDS = ${JSON.stringify(recordsPayload(input.records), null, 2)};
 const FIELDS = ${JSON.stringify(FIELD_ORDER.map((f) => ({ ...f })), null, 2)};
 const FINGERPRINTS: Record<string, unknown> = ${JSON.stringify(fingerprints(input.cache), null, 2)};
 const SYNONYMS = ${JSON.stringify(SYNONYMS)};
-const HEAL = ${IN_PAGE_HEALER};
+// Kept as source text: a transpiler (tsx, esbuild) must not rewrite code that runs inside the page.
+const HEAL_SOURCE = ${JSON.stringify(IN_PAGE_HEALER)};
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 const key = (r: (typeof RECORDS)[number]) => createHash("sha256").update(\`\${r.vendor}|\${r.po}|\${r.invoice}|\${r.amountCents}\`).digest("hex");
@@ -117,7 +118,7 @@ async function locate(page: Page, labelRe: RegExp, fpKey: string): Promise<Locat
   if ((await byLabel.count()) === 1) return byLabel;
   const fp = FINGERPRINTS[fpKey];
   if (!fp) throw new Error(\`no locator and no fingerprint for \${fpKey}\`);
-  const healed = (await page.evaluate(HEAL as never, { fp, synonyms: SYNONYMS } as never)) as { selector: string; score: number } | null;
+  const healed = (await page.evaluate(\`(\${HEAL_SOURCE})(\${JSON.stringify({ fp, synonyms: SYNONYMS })})\`)) as { selector: string; score: number } | null;
   if (!healed) throw new Error(\`could not heal \${fpKey} with enough confidence; a human must check the page\`);
   console.log(\`  healed \${fpKey} (\${healed.score})\`);
   return page.locator(healed.selector);
@@ -374,5 +375,5 @@ if __name__ == "__main__":
 
 export const MCP_SETUP = {
   claudeCode: "claude mcp add forwarddeploy-os -- npx tsx mcp-server/server.ts",
-  claudeDesktop: JSON.stringify({ mcpServers: { "forwarddeploy-os": { command: "npx", args: ["tsx", "mcp-server/server.ts"], env: { PORTAL_URL: "http://localhost:3000" } } } }, null, 2),
+  claudeDesktop: JSON.stringify({ mcpServers: { "forwarddeploy-os": { command: "npx", args: ["tsx", "mcp-server/server.ts"], cwd: "/absolute/path/to/forward-deploy-os" } } }, null, 2),
 };

@@ -175,7 +175,7 @@ export function Problem() {
             </span>
           </div>
           <p className="mt-1 text-[13px] text-ink-2">{SCENARIOS[1].story}</p>
-          <div className="mt-4 overflow-x-auto rounded-xl border border-line bg-[var(--surface-0)] scroll-thin">
+          <div className="mt-4 overflow-x-auto rounded-xl border border-line bg-[var(--surface-0)] scroll-thin" tabIndex={0} role="region" aria-label="Drifted export, first rows">
             <table className="w-full text-left font-mono text-[11.5px]">
               <thead>
                 <tr>

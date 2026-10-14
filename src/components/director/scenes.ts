@@ -91,7 +91,10 @@ export interface RunSummary {
   duplicatesPrevented: number;
   quarantinedDocs: number;
   guardBlocks: number;
+  /** Nodes 1-5 and 8: pure engine time. */
   engineMs: number;
+  /** Nodes 6-7: portal work, which includes the pauses that let a person watch the agent. */
+  portalMs: number;
   auditEntries?: number;
   chainValid?: boolean;
 }
@@ -112,7 +115,12 @@ export function summarize(events: AnyEngineEvent[]): RunSummary {
     duplicatesPrevented: ofType(events, "DUPLICATE_PREVENTED").length,
     quarantinedDocs: ofType(events, "DOC_QUARANTINED").length,
     guardBlocks: ofType(events, "GUARD_BLOCKED").length,
-    engineMs: ofType(events, "NODE_FINISHED").reduce((a, e) => a + (e.ms ?? 0), 0),
+    engineMs: ofType(events, "NODE_FINISHED")
+      .filter((e) => e.node !== 6 && e.node !== 7)
+      .reduce((a, e) => a + (e.ms ?? 0), 0),
+    portalMs: ofType(events, "NODE_FINISHED")
+      .filter((e) => e.node === 6 || e.node === 7)
+      .reduce((a, e) => a + (e.ms ?? 0), 0),
     auditEntries: audit?.payload.entries,
     chainValid: audit?.payload.valid,
   };

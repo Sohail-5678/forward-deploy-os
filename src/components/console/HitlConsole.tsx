@@ -9,6 +9,7 @@ import type { DecisionChoice, Escalation, HumanDecision, Reconciliation } from "
 import { vendorName } from "@/engine/data/scenarios";
 import { formatUsd } from "@/engine/format";
 import { notifySlack } from "@/lib/api";
+import { humanDecisionSchema } from "@/engine/schemas";
 import { cn } from "@/lib/cn";
 
 function blockKit(rec: Reconciliation, runId: string, siteUrl: string, scenario: number | "sandbox") {
@@ -140,10 +141,13 @@ export function HitlConsole() {
   const rec = esc.kind === "POLICY" ? sus.checkpoint.state.n4?.reconciliations.find((r) => r.recordId === esc.recordId) : undefined;
   const allChosen = pending.every((p) => choices[p.id]);
   const op = operator.trim();
+  // Same rule the server enforces, checked here so the message appears next to the field.
+  const opCheck = op ? humanDecisionSchema.shape.operator.safeParse(op) : null;
+  const opError = opCheck && !opCheck.success ? opCheck.error.issues[0]?.message : undefined;
   const busy = sus.status === "verifying" || sus.status === "signing";
 
   const submit = async () => {
-    if (!allChosen || !op) return;
+    if (!allChosen || !op || opError) return;
     c.setOperator(op);
     const at = new Date().toISOString();
     const ds: HumanDecision[] = pending.map((p) => ({ escalationId: p.id, choice: choices[p.id], operator: op, note: note.trim() || undefined, at }));
@@ -282,7 +286,22 @@ export function HitlConsole() {
               <label htmlFor="operator" className="mb-1 flex items-center gap-1.5 text-[12px] font-semibold text-ink-2">
                 <User size={12} aria-hidden="true" /> Operator name (recorded in the audit chain)
               </label>
-              <input id="operator" value={director ? (graph.config.demoOperator ?? "Demo operator") : operator} onChange={(e) => setOperator(e.target.value)} maxLength={60} placeholder="Your name" className="h-10 w-full rounded-xl border border-line-strong bg-[var(--surface-0)] px-3 text-[13px] text-ink placeholder:text-ink-3" disabled={director} />
+              <input
+                id="operator"
+                value={director ? (graph.config.demoOperator ?? "Demo operator") : operator}
+                onChange={(e) => setOperator(e.target.value)}
+                maxLength={60}
+                placeholder="Your name"
+                aria-invalid={!!opError}
+                aria-describedby={opError ? "operator-error" : undefined}
+                className={cn("h-10 w-full rounded-xl border bg-[var(--surface-0)] px-3 text-[13px] text-ink placeholder:text-ink-3", opError ? "border-danger" : "border-line-strong")}
+                disabled={director}
+              />
+              {opError && (
+                <p id="operator-error" className="mt-1 text-[12px] text-danger">
+                  {opError}
+                </p>
+              )}
             </div>
             <div>
               <label htmlFor="note" className="mb-1 flex items-center gap-1.5 text-[12px] font-semibold text-ink-2">
@@ -291,7 +310,7 @@ export function HitlConsole() {
               <textarea id="note" value={note} onChange={(e) => setNote(e.target.value)} maxLength={500} rows={2} className="w-full rounded-xl border border-line-strong bg-[var(--surface-0)] p-2.5 text-[13px] text-ink" disabled={director} />
             </div>
             {sus.verifyError && <p className="rounded-xl border border-danger/60 bg-[color-mix(in_oklab,var(--danger)_8%,transparent)] p-2.5 text-[12.5px] text-danger" role="alert">{sus.verifyError}</p>}
-            <button type="button" className="btn btn-cyan w-full" onClick={() => void submit()} disabled={!allChosen || !op || busy || !sus.signature || director}>
+            <button type="button" className="btn btn-cyan w-full" onClick={() => void submit()} disabled={!allChosen || !op || !!opError || busy || !sus.signature || director}>
               {busy ? <Loader2 size={15} className="animate-spin" aria-hidden="true" /> : <BadgeCheck size={15} aria-hidden="true" />}
               {director ? "Demo operator is deciding…" : pending.length > 1 && !allChosen ? `Decide all ${pending.length} to continue` : "Verify checkpoint and resume"}
             </button>

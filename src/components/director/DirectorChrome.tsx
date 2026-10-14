@@ -134,7 +134,8 @@ export function SummaryCard({ d, onTakeControl }: { d: DirectorApi; onTakeContro
     ["Selectors healed after the portal change", sum.meanHealScore !== undefined ? `${sum.selectorsHealed} (mean score ${sum.meanHealScore.toFixed(2)})` : String(sum.selectorsHealed)],
     ["Invoices posted to the portal", String(sum.posted)],
     ["Hostile documents quarantined", String(sum.quarantinedDocs)],
-    ["Engine time for all 8 nodes", formatMs(sum.engineMs)],
+    ["Engine time, nodes 1 to 5 and 8", formatMs(sum.engineMs)],
+    ["Portal steps, paced so you can watch", formatMs(sum.portalMs)],
     ["Audit entries sealed", sum.auditEntries !== undefined ? `${sum.auditEntries}, chain ${sum.chainValid ? "valid" : "broken"}` : "pending"],
   ];
   return (

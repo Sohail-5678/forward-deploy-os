@@ -38,7 +38,7 @@ const Mono = ({ children }: { children: React.ReactNode }) => <code className="r
 function Architecture() {
   const box = "fill-[var(--surface-1)] stroke-[var(--border-strong)]";
   return (
-    <figure className="panel overflow-x-auto p-4 scroll-thin">
+    <figure className="panel overflow-x-auto p-4 scroll-thin" tabIndex={0} aria-label="Architecture diagram">
       <svg viewBox="0 0 1000 420" className="min-w-[760px]" role="img" aria-label="Architecture: the console and the 2009 portal iframe on the main thread, the engine in a Web Worker, and stateless API routes on the server">
         <defs>
           <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
@@ -236,7 +236,7 @@ export default function HowItWorksPage() {
 
         <section className="mt-16 space-y-5" aria-labelledby="security">
           <H2 id="security">Security layers</H2>
-          <div className="overflow-x-auto rounded-2xl border border-line scroll-thin">
+          <div className="overflow-x-auto rounded-2xl border border-line scroll-thin" tabIndex={0} role="region" aria-label="Security layers">
             <table className="w-full text-left text-[13.5px]">
               <thead className="bg-white/[0.03] text-[11px] uppercase tracking-wider text-ink-3">
                 <tr>
@@ -268,7 +268,7 @@ export default function HowItWorksPage() {
 
         <section className="mt-16 space-y-5" aria-labelledby="decisions">
           <H2 id="decisions">Design decisions</H2>
-          <div className="overflow-x-auto rounded-2xl border border-line scroll-thin">
+          <div className="overflow-x-auto rounded-2xl border border-line scroll-thin" tabIndex={0} role="region" aria-label="Design decisions">
             <table className="w-full min-w-[760px] text-left text-[13.5px]">
               <thead className="bg-white/[0.03] text-[11px] uppercase tracking-wider text-ink-3">
                 <tr>

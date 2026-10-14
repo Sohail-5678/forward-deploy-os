@@ -73,13 +73,13 @@ export function computeBudgets(suites: BenchResults["suites"], web?: BenchResult
     { item: "Selector heal, one element (p95)", target: "under 20 ms", measured: fmtMs(heal), met: heal === undefined ? null : heal < 20, source: "selector suite" },
   ];
   const lh = web?.lighthouse;
-  budgets.push({ item: "Landing page LCP", target: "under 2.5 s", measured: web?.lcpMs !== undefined ? `${(web.lcpMs / 1000).toFixed(2)} s` : "not measured", met: web?.lcpMs === undefined ? null : web.lcpMs < 2500, source: web?.lcpMs !== undefined ? `Lighthouse (${web.url ?? "local"})` : "run scripts/lighthouse.ts" });
+  budgets.push({ item: "Landing page LCP", target: "under 2.5 s", measured: web?.lcpMs !== undefined ? `${(web.lcpMs / 1000).toFixed(2)} s` : "not measured", met: web?.lcpMs === undefined ? null : web.lcpMs < 2500, source: web?.lcpMs !== undefined ? `Lighthouse (${web.url ?? "local"})` : "npm run lighthouse -- <url>" });
   budgets.push({
     item: "Lighthouse performance / accessibility / best practices",
     target: ">= 90 / >= 95 / >= 95",
     measured: lh ? `${lh.performance} / ${lh.accessibility} / ${lh.bestPractices}` : "not measured",
     met: lh ? lh.performance >= 90 && lh.accessibility >= 95 && lh.bestPractices >= 95 : null,
-    source: lh ? `Lighthouse (${web?.url ?? "local"})` : "run scripts/lighthouse.ts",
+    source: lh ? `Lighthouse (${web?.url ?? "local"})` : "npm run lighthouse -- <url>",
   });
   budgets.push({ item: "Console playback", target: "60 fps on a mid-range laptop", measured: "shown live in the console", met: null, source: "frame meter in the console" });
   return budgets;

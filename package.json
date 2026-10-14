@@ -32,7 +32,9 @@
     "screenshots": "tsx scripts/screenshot-assets.ts",
     "record-demo": "tsx scripts/record-demo.ts",
     "readme:results": "tsx scripts/update-readme-results.ts",
-    "secret": "node -e \"console.log(require('node:crypto').randomBytes(32).toString('hex'))\""
+    "secret": "node -e \"console.log(require('node:crypto').randomBytes(32).toString('hex'))\"",
+    "test:integration": "vitest run --config vitest.integration.config.ts",
+    "lighthouse": "tsx scripts/lighthouse.ts"
   },
   "dependencies": {
     "@xyflow/react": "^12.12.0",

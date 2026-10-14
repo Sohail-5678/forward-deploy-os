@@ -790,14 +790,14 @@
       "target": "under 2.5 s",
       "measured": "not measured",
       "met": null,
-      "source": "run scripts/lighthouse.ts"
+      "source": "npm run lighthouse -- <url>"
     },
     {
       "item": "Lighthouse performance / accessibility / best practices",
       "target": ">= 90 / >= 95 / >= 95",
       "measured": "not measured",
       "met": null,
-      "source": "run scripts/lighthouse.ts"
+      "source": "npm run lighthouse -- <url>"
     },
     {
       "item": "Console playback",

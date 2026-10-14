@@ -38,3 +38,6 @@ next-env.d.ts
 # local runner state
 /runner/.selector-cache.json
 /benchmarks/calibration-set.json
+runner/dist/
+tests/integration/.out/
+docs/.video/

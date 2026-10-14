@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { ConsoleApp } from "@/components/console/ConsoleApp";
 import { createConsole, useControllerLifetime } from "@/lib/console-store";
 
@@ -27,7 +28,8 @@ export default function DirectorOverlay({ onClose }: { onClose: () => void }) {
     onClose();
   };
 
-  return (
+  // Portaled to <body> so no ancestor stacking context (the hero uses `isolate`) can sit above it.
+  return createPortal(
     <div className="fixed inset-0 z-[100] bg-bg" role="dialog" aria-modal="true" aria-label={mode === "director" ? "Director Mode: the 90-second guided demo" : "ForwardDeploy OS console"}>
       <ConsoleApp
         controller={c}
@@ -39,6 +41,7 @@ export default function DirectorOverlay({ onClose }: { onClose: () => void }) {
         }}
         onExit={close}
       />
-    </div>
+    </div>,
+    document.body,
   );
 }

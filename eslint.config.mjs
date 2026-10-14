@@ -52,6 +52,9 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     "public/legacy/**/*.min.js",
     "public/workers/**",
+    "runner/dist/**",
+    "tests/integration/.out/**",
+    "docs/**",
   ]),
 ]);
 

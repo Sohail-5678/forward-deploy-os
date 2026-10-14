@@ -12,7 +12,7 @@ import type { DecisionChoice, Escalation, HumanDecision } from "@/engine/types";
 import { speedFactor, type Speed } from "@/lib/console-store";
 import { SCENES, SCENE5_DWELL_MS } from "./scenes";
 
-export const DEMO_OPERATOR = "Demo operator (scripted)";
+export const DEMO_OPERATOR = "Demo operator - scripted";
 
 export interface DirectorApi {
   /** 0 before start, then 1 to 6. */
@@ -52,6 +52,8 @@ export function useDirector(enabled: boolean): DirectorApi {
   const skipTarget = useRef<number | null>(null);
   const restoreSpeed = useRef<Speed>(1);
   const fuzzed = useRef(false);
+  /** Checkpoint the scripted operator already submitted (one attempt each; a failure is shown, not retried). */
+  const decidedFor = useRef<string | null>(null);
   /** Bumped when fast-forwarding so pending demo timers restart at skip speed. */
   const [skipTick, setSkipTick] = useState(0);
 
@@ -102,6 +104,7 @@ export function useDirector(enabled: boolean): DirectorApi {
   // Scene 3: the scripted demo operator decides, visibly and slowly enough to read.
   useEffect(() => {
     if (!enabled || held || !suspension || suspension.status !== "awaiting" || !suspendedOnScreen) return;
+    if (suspension.verifyError || decidedFor.current === suspension.checkpoint.id) return;
     const pending = suspension.checkpoint.state.pending;
     if (!pending.length) return;
     const fast = skipTarget.current !== null;
@@ -117,6 +120,7 @@ export function useDirector(enabled: boolean): DirectorApi {
         () => {
           const at = new Date().toISOString();
           const decisions: HumanDecision[] = pending.map((p) => ({ escalationId: p.id, choice: choiceFor(p), operator: DEMO_OPERATOR, note: "Scripted choice in Director Mode", at }));
+          decidedFor.current = suspension.checkpoint.id;
           void c.decide(decisions);
         },
         first + pending.length * gap + (fast ? 150 : 1400 / f),
@@ -133,6 +137,7 @@ export function useDirector(enabled: boolean): DirectorApi {
   }, [enabled, derived, summary, held, speed]);
 
   const start = useCallback(() => {
+    decidedFor.current = null;
     c.selectScenario(5);
     c.resetPortal();
     c.updateConfig((cfg) => ({ ...cfg, demoOperator: DEMO_OPERATOR }));

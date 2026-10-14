@@ -169,7 +169,7 @@ export function RateBars({ rows, tone = "agent" }: { rows: { label: string; valu
 
 export function DataTable({ head, rows, caption }: { head: string[]; rows: (string | number)[][]; caption?: string }) {
   return (
-    <div className="overflow-x-auto rounded-xl border border-line scroll-thin">
+    <div className="overflow-x-auto rounded-xl border border-line scroll-thin" tabIndex={0} role="region" aria-label={caption ?? head.join(", ")}>
       <table className="w-full text-left text-[12.5px]">
         {caption && <caption className="sr-only">{caption}</caption>}
         <thead className="bg-white/[0.03] text-[11px] uppercase tracking-wider text-ink-3">

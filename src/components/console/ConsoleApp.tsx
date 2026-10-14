@@ -166,13 +166,15 @@ function RunHeader() {
     <div className="border-b border-line px-3 py-2.5">
       <div className="flex items-center justify-between gap-2">
         <h2 className="eyebrow">Pipeline</h2>
-        <StatusChip status={status} word={word} />
+        <span data-testid="run-status">
+          <StatusChip status={status} word={word} />
+        </span>
       </div>
       <div className="mt-1.5 flex items-center justify-between font-mono text-[10.5px] text-ink-3">
         <span className="truncate" title={graph?.runId}>
           {graph ? graph.runId : "press Run or Step"}
         </span>
-        <span className="tabular">{engineMs ? `engine ${formatMs(engineMs)}` : ""}</span>
+        <span className="tabular" title="Sum of measured node times (portal nodes include viewing pace)">{engineMs ? `${formatMs(engineMs)} in nodes` : ""}</span>
       </div>
       {replayOnly && <p className="mt-1 text-[11px] text-lilac">Loaded run: replay only. Run starts a fresh run.</p>}
     </div>
