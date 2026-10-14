@@ -22,7 +22,7 @@ jobs:
       - name: Benchmark drift check (fails if results.json is stale)
         run: npm run bench:check
       - run: npx playwright install --with-deps chromium
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
       - name: Python Playwright for the exported script test
