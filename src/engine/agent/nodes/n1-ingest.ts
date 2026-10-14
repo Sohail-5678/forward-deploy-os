@@ -7,7 +7,7 @@
 import type { ExtractedInvoice, IngestedDoc, InvoiceRecord, SecurityFinding } from "../../types";
 import type { NodeCtx } from "../runtime";
 import { scanDocument } from "../../security/injection-scanner";
-import { spotlight, makeNonce } from "../../security/spotlighting";
+import { spotlight, makeNonce, secureNonce } from "../../security/spotlighting";
 import { OBFUSCATION_RULES, HOSTILE_SCORE_THRESHOLD, SEVERITY_WEIGHT } from "../../security/rules";
 import { extractPdf } from "../../docs/pdf-extract";
 import { extractInvoiceFields, bestIban } from "../../docs/invoice-fields";
@@ -79,7 +79,8 @@ async function llmExtract(ctx: NodeCtx, doc: IngestedDoc, text: string, inv: Ext
 export async function node1Ingest(ctx: NodeCtx): Promise<string> {
   const { state, deps } = ctx;
   const sec = state.config.security;
-  const nonce = deps.nonce ?? (() => makeNonce(Math.random));
+  // Delimiter nonces are security randomness, not test data: crypto when available.
+  const nonce = deps.nonce ?? (() => (typeof globalThis.crypto?.getRandomValues === "function" ? secureNonce() : makeNonce()));
   const docs: IngestedDoc[] = [];
 
   ctx.audit("RUN_STARTED", {

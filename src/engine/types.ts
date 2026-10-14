@@ -893,7 +893,7 @@ export interface EventPayloads {
   RUN_SUSPENDED: { atNode: NodeId; escalations: number };
   HUMAN_DECISION: { decision: HumanDecision };
   RUN_RESUMED: { fromNode: NodeId; decisions: number };
-  DOM_DISTILLED: { page: string; nodeCount: number; rawTokens: number; distilledTokens: number; ratio: number; lines: string[]; chaos: ChaosType[] };
+  DOM_DISTILLED: { page: string; nodeCount: number; rawTokens: number; distilledTokens: number; ratio: number; lines: string[]; chaos: ChaosType[]; selectors?: string[] };
   BASELINE_RUN: BaselineResult;
   ACTION_PLANNED: { recordId: string; planner: "deterministic" | "llm" | "hijacked-stub"; actions: PlannedAction[]; rejected: { raw: unknown; reason: string }[] };
   ACTION_EXECUTED: { action: ExecutedAction };

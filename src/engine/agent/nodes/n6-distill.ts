@@ -69,7 +69,7 @@ export async function node6Distill(ctx: NodeCtx): Promise<string> {
   const raw = deps.countTokens ? deps.countTokens(snap.rawHtml) : Math.round(snap.rawHtml.length / 4);
   const dis = deps.countTokens ? deps.countTokens(snap.text) : Math.round(snap.text.length / 4);
   const ratio = dis ? Math.round((raw / dis) * 10) / 10 : 0;
-  ctx.emit("DOM_DISTILLED", { page: snap.page, nodeCount: snap.nodes.length, rawTokens: raw, distilledTokens: dis, ratio, lines: snap.lines, chaos: chaos.types }, snap.ms);
+  ctx.emit("DOM_DISTILLED", { page: snap.page, nodeCount: snap.nodes.length, rawTokens: raw, distilledTokens: dis, ratio, lines: snap.lines, chaos: chaos.types, selectors: snap.nodes.map((n) => n.selector) }, snap.ms);
   state.n6 = { page: snap.page, nodeCount: snap.nodes.length, rawTokens: raw, distilledTokens: dis, ratio, lines: snap.lines, chaos: chaos.types, baseline, ms: snap.ms };
   return `${snap.page}: ${snap.nodes.length} nodes, ${raw} raw HTML tokens -> ${dis} distilled tokens (${ratio}x)${baseline ? `; recorded baseline ${baseline.ok ? "passed" : "failed"}` : ""}`;
 }

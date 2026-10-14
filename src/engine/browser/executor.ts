@@ -108,7 +108,7 @@ export class PortalExecutor {
     if (emit) {
       const raw = this.ctx.countTokens ? this.ctx.countTokens(snap.rawHtml) : Math.round(snap.rawHtml.length / 4);
       const dis = this.ctx.countTokens ? this.ctx.countTokens(snap.text) : Math.round(snap.text.length / 4);
-      this.ctx.emit("DOM_DISTILLED", { page: snap.page, nodeCount: snap.nodes.length, rawTokens: raw, distilledTokens: dis, ratio: dis ? Math.round((raw / dis) * 10) / 10 : 0, lines: snap.lines, chaos: [] }, snap.ms);
+      this.ctx.emit("DOM_DISTILLED", { page: snap.page, nodeCount: snap.nodes.length, rawTokens: raw, distilledTokens: dis, ratio: dis ? Math.round((raw / dis) * 10) / 10 : 0, lines: snap.lines, chaos: [], selectors: snap.nodes.map((n) => n.selector) }, snap.ms);
     }
     return snap;
   }
@@ -138,7 +138,7 @@ export class PortalExecutor {
     const found = findDialog(snap);
     if (!found) return snap;
     if (!found.button) throw new StopRecord({ kind: "failed", reason: `unexpected dialog "${found.dialog.label}" with no Continue button` });
-    this.ctx.emit("DOM_DISTILLED", { page: snap.page, nodeCount: snap.nodes.length, rawTokens: 0, distilledTokens: 0, ratio: 0, lines: snap.lines, chaos: ["interstitial"] }, snap.ms);
+    this.ctx.emit("DOM_DISTILLED", { page: snap.page, nodeCount: snap.nodes.length, rawTokens: 0, distilledTokens: 0, ratio: 0, lines: snap.lines, chaos: ["interstitial"], selectors: snap.nodes.map((n) => n.selector) }, snap.ms);
     const action: PlannedAction = { kind: "click", nodeId: found.button.id, purpose: "dialog" };
     await this.perform(action, found.button, undefined, { dialogLabel: found.dialog.label });
     this.dialogsDismissed++;

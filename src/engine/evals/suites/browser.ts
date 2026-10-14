@@ -59,7 +59,7 @@ async function taskSuccess(h: PortalHandle, snap: DistillResult): Promise<boolea
     const node = "nodeId" in a ? snap.nodes.find((n) => n.id === a.nodeId) : undefined;
     if (!node) return false;
     if (a.kind === "click") await h.driver.click(node.selector);
-    else {
+    else if (a.kind === "fill" || a.kind === "select") {
       const v = bindValue(rec, a.valueRef, { label: node.label, placeholder: node.fingerprint.placeholder });
       if (a.kind === "select") await h.driver.select(node.selector, v);
       else await h.driver.fill(node.selector, v);

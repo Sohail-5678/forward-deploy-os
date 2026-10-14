@@ -1,5 +1,5 @@
 import "server-only";
-import { randomUUID } from "node:crypto";
+import { createHash, randomUUID } from "node:crypto";
 import type { ZodType } from "zod";
 import { rateLimit } from "./rate-limit";
 
@@ -92,7 +92,9 @@ export function apiRoute<T>(opts: RouteOptions<T>, handler: (body: T, ctx: Route
     const ip = clientIp(req);
     try {
       if ((opts.sameOrigin ?? req.method !== "GET") && !sameOriginOk(req)) throw new ApiError(403, "CROSS_ORIGIN", "Cross-site requests are not allowed.");
-      const limit = await rateLimit(`${opts.name}:${ip}`, opts.limit.max, opts.limit.windowMs ?? 60_000);
+      // The limiter only ever sees a hash of the address, never the address itself.
+      const ipKey = createHash("sha256").update(ip).digest("hex").slice(0, 24);
+      const limit = await rateLimit(`${opts.name}:${ipKey}`, opts.limit.max, opts.limit.windowMs ?? 60_000);
       if (!limit.allowed) {
         const retry = Math.max(1, Math.ceil(limit.resetMs / 1000));
         throw new ApiError(429, "RATE_LIMITED", `Too many requests. Try again in ${retry} s.`, { "retry-after": String(retry) });

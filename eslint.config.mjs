@@ -39,7 +39,7 @@ const eslintConfig = defineConfig([
       sourceType: "script",
       globals: { window: "readonly", document: "readonly", localStorage: "readonly", sessionStorage: "readonly", location: "readonly", console: "readonly", setTimeout: "readonly", clearTimeout: "readonly", URLSearchParams: "readonly", MutationObserver: "readonly" },
     },
-    rules: { "no-var": "off", "prefer-const": "off" },
+    rules: { "no-var": "off", "prefer-const": "off", "@typescript-eslint/no-unused-vars": "off", "@next/next/no-location-assign-relative-destination": "off" },
   },
   globalIgnores([
     ".next/**",
