@@ -27,7 +27,7 @@ import type { Clock } from "../clock";
 import { now } from "../clock";
 import { PortalError, type PortalDriver, type PortalPage } from "./driver";
 import { bindLogin, bindValue, BindingError } from "./binder";
-import { fingerprintSimilarity, healAgainst, SelectorCache, type HealDecision } from "./selector-healer";
+import { confirmedBySelector, fingerprintSimilarity, healAgainst, SelectorCache, type HealDecision } from "./selector-healer";
 import { fieldScore, findDialog, findSubmit, hijackedPlan, INVOICE_FORM_FIELDS, orderActions, planDeterministic } from "./planner";
 import { guardAction, guardLogin, labelFits } from "../security/tool-boundary-guard";
 import { plannedActionSchema } from "../schemas";
@@ -237,6 +237,15 @@ export class PortalExecutor {
         this.ctx.cache.set(key, node.fingerprint, this.ctx.clock.iso());
         this.heals.push({ key, page: snap.page, from, to: node.selector, similarity: cand.similarity, runnerUp: decision.runnerUp, outcome: "human-picked", candidates: decision.candidates });
         this.ctx.emit("SELECTOR_HEALED", { key, from, to: node.selector, similarity: cand.similarity, runnerUp: decision.runnerUp });
+        return { node };
+      }
+    }
+    if (decision.outcome === "ask-human" && confirmedBySelector(decision, from, !!probe, this.ctx.healing)) {
+      const node = snap.nodes.find((n) => n.selector === from);
+      if (node && semantic(node)) {
+        this.ctx.cache.set(key, node.fingerprint, this.ctx.clock.iso());
+        this.heals.push({ key, page: snap.page, from, to: from, similarity: decision.similarity, runnerUp: decision.runnerUp, outcome: "healed", candidates: decision.candidates });
+        this.ctx.emit("SELECTOR_HEALED", { key, from, to: from, similarity: decision.similarity, runnerUp: decision.runnerUp });
         return { node };
       }
     }

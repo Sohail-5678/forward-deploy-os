@@ -16,7 +16,7 @@ const RE = {
   compact: /^(19|20)\d{2}(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])$/,
   percent: /^[-+]?\d+([.,]\d+)?\s?%$/,
   currencyMarker: /(USD|US\$|EUR|GBP|\$|€|£)/i,
-  currencyBody: /^[-(]?\s*(USD|US\$|EUR|GBP|\$|€|£)?\s*[-]?\d{1,3}([,.' ]\d{3})*([.,]\d{1,2})?\s*(USD|EUR|GBP)?\s*\)?$/i,
+  currencyBody: /^[-(]?\s*(USD|US\$|EUR|GBP|\$|€|£)?\s*[-]?\d{1,3}([,.' ]\d{3})*([.,]\d{1,2})?\s*(USD|EUR|GBP|\$|€|£)?\s*\)?$/i,
   thousands: /\d{1,3}([,.' ]\d{3})+([.,]\d{1,2})?$/,
   decimal: /^[-+]?\d+\.\d+$/,
   int: /^\d{1,4}$/,

@@ -39,6 +39,23 @@ export function invisibleKind(cp: number): RevealedChar["kind"] | null {
   return null;
 }
 
+/**
+ * Confusables skeleton (in the spirit of Unicode TS #39): Cyrillic and Greek
+ * letters that look like Latin ones are mapped to Latin before matching, so
+ * "Ignоrе" with Cyrillic о/е still reads as "Ignore". One code unit in, one
+ * out, so offsets stay aligned.
+ */
+const CONFUSABLES: Record<string, string> = {
+  а: "a", в: "b", е: "e", к: "k", м: "m", н: "h", о: "o", р: "p", с: "c", т: "t", у: "y", х: "x", ѕ: "s", і: "i", ј: "j", ԁ: "d", ӏ: "l", ԛ: "q", ԝ: "w", ѵ: "v",
+  А: "A", В: "B", Е: "E", К: "K", М: "M", Н: "H", О: "O", Р: "P", С: "C", Т: "T", У: "Y", Х: "X", Ѕ: "S", І: "I", Ј: "J",
+  α: "a", ο: "o", ν: "v", ι: "i", κ: "k", ρ: "p", τ: "t", υ: "u", χ: "x",
+  Α: "A", Β: "B", Ε: "E", Ζ: "Z", Η: "H", Ι: "I", Κ: "K", Μ: "M", Ν: "N", Ο: "O", Ρ: "P", Τ: "T", Υ: "Y", Χ: "X",
+};
+
+export function skeleton(ch: string): string {
+  return CONFUSABLES[ch] ?? ch;
+}
+
 export function chipLabel(cp: number): string {
   const named = NAMED[cp];
   if (named) return `⟨${named}⟩`;
@@ -62,7 +79,7 @@ function isMostlyPrintable(s: string): boolean {
     if ((c >= 0x20 && c < 0x7f) || c === 0x0a || c === 0x0d || c === 0x09) printable++;
     if (/[A-Za-z]/.test(ch)) letters++;
   }
-  return printable / s.length >= 0.9 && letters / s.length >= 0.5 && /\s/.test(s);
+  return printable / s.length >= 0.9 && letters / s.length >= 0.35 && /\s/.test(s);
 }
 
 function decodeBase64(token: string): string | null {
@@ -139,7 +156,7 @@ export function normalizeUntrusted(original: string): NormalizeOutput {
       void tagRunOrigStart;
     } else {
       flushTagRun();
-      const ch = String.fromCodePoint(cp).normalize("NFKC");
+      const ch = [...String.fromCodePoint(cp).normalize("NFKC")].map(skeleton).join("");
       for (let k = 0; k < ch.length; k++) offsetMap.push(i);
       out += ch;
       if (!/\s/.test(ch)) visible++;

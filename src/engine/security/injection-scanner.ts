@@ -105,8 +105,10 @@ export function scanChannel(input: ChannelText): { findings: SecurityFinding[]; 
   if (bidi.length > 0) {
     findings.push(finding(input.channel, "OBF-003", OBFUSCATION_RULES["OBF-003"].name, "obfuscation", "medium", `${bidi.length} bidirectional control characters`, text, 0, Math.min(text.length, 1)));
   }
-  for (const t of mixedScriptTokens(text)) {
-    findings.push(finding(input.channel, "OBF-004", OBFUSCATION_RULES["OBF-004"].name, "obfuscation", "medium", `"${t.token}" mixes Latin with Cyrillic or Greek letters`, text, t.start, t.end));
+  // Mixed scripts are judged on the text as received (the skeleton has already folded them).
+  const mixed = mixedScriptTokens(raw.normalize("NFKC"));
+  for (const t of mixed.slice(0, 5)) {
+    findings.push(finding(input.channel, "OBF-004", OBFUSCATION_RULES["OBF-004"].name, "obfuscation", "medium", `"${t.token}" mixes Latin with Cyrillic or Greek letters`, raw, t.start, t.end));
   }
   // Decode once and re-scan (spec: one level).
   for (const p of n.decodedPayloads) {

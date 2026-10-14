@@ -4,9 +4,7 @@
  */
 import { mkdir, writeFile } from "node:fs/promises";
 import { generateCalibrationSet } from "../src/engine/evals/calibration-data";
-
-export const CALIBRATION_SEED = 8_312_026;
-export const CALIBRATION_SIZE = 1000;
+import { CALIBRATION_SEED, CALIBRATION_SIZE } from "../src/engine/evals/suites/calibration";
 
 async function main() {
   const cases = generateCalibrationSet(CALIBRATION_SEED, CALIBRATION_SIZE);

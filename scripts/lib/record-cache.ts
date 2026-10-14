@@ -11,6 +11,19 @@ import { labelFits } from "../../src/engine/security/tool-boundary-guard";
 
 const RECORDED_AT = "2026-10-09T17:00:00.000Z";
 
+/** Distilled snapshot of the clean invoice form (override row revealed), used by the guard suite. */
+export async function recordInvoiceSnapshot() {
+  const portal = await createJsdomPortal({ loggedIn: true });
+  try {
+    await portal.load("invoice-entry.html");
+    portal.window().document.getElementById("row_override")?.removeAttribute("hidden");
+    const snap = await portal.driver.distill();
+    return { ...snap, rawHtml: "", ms: 0 };
+  } finally {
+    portal.close();
+  }
+}
+
 export async function recordSelectorCache(): Promise<SelectorCacheEntry[]> {
   // Logged in, so later pages open directly; the log-on page still renders without a redirect.
   const portal = await createJsdomPortal({ loggedIn: true });

@@ -49,6 +49,17 @@ export interface HealDecision {
   candidates: { nodeId: number; selector: string; label: string; similarity: number }[];
 }
 
+/**
+ * When the cached selector still resolves and the fingerprint scorer's best
+ * candidate is that same element, two independent signals agree: accept it
+ * even if a label rewording pulled similarity below the auto-heal threshold
+ * (but never below the ask threshold).
+ */
+export function confirmedBySelector(decision: HealDecision, cachedSelector: string, probeResolved: boolean, cfg: HealingConfig): boolean {
+  const top = decision.candidates[0];
+  return probeResolved && !!top && top.selector === cachedSelector && top.similarity >= cfg.askThreshold && top.similarity - (decision.runnerUp ?? 0) >= cfg.minMargin;
+}
+
 export function healAgainst(cached: Fingerprint, snapshot: DistillResult, cfg: HealingConfig): HealDecision {
   const scored = snapshot.nodes
     .filter((n) => n.role !== "row" && n.role !== "alert" && n.role !== "status" && n.role !== "dialog")

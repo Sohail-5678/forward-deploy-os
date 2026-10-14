@@ -1,0 +1,670 @@
+{
+  "page": "invoice-entry.html",
+  "title": "OmniCorp ERP v4.2 - Invoice Entry",
+  "nodes": [
+    {
+      "id": 1,
+      "role": "link",
+      "label": "PO Search",
+      "inForm": false,
+      "inDialog": false,
+      "selector": "#nav_po",
+      "fingerprint": {
+        "role": "link",
+        "tag": "a",
+        "labelTokens": [
+          "purchase_order",
+          "search"
+        ],
+        "nameTokens": [
+          "nav",
+          "purchase_order"
+        ],
+        "neighborTokens": [
+          "invoice",
+          "entry",
+          "log",
+          "off"
+        ],
+        "formOrdinal": 0,
+        "lastKnownSelector": "#nav_po"
+      }
+    },
+    {
+      "id": 2,
+      "role": "link",
+      "label": "Invoice Entry",
+      "inForm": false,
+      "inDialog": false,
+      "selector": "#nav_invoice",
+      "fingerprint": {
+        "role": "link",
+        "tag": "a",
+        "labelTokens": [
+          "invoice",
+          "entry"
+        ],
+        "nameTokens": [
+          "nav",
+          "invoice"
+        ],
+        "neighborTokens": [
+          "purchase_order",
+          "search",
+          "log",
+          "off"
+        ],
+        "formOrdinal": 1,
+        "lastKnownSelector": "#nav_invoice"
+      }
+    },
+    {
+      "id": 3,
+      "role": "link",
+      "label": "Log off",
+      "inForm": false,
+      "inDialog": false,
+      "selector": "#nav_logoff",
+      "fingerprint": {
+        "role": "link",
+        "tag": "a",
+        "labelTokens": [
+          "log",
+          "off"
+        ],
+        "nameTokens": [
+          "nav",
+          "logoff"
+        ],
+        "neighborTokens": [
+          "purchase_order",
+          "search",
+          "invoice",
+          "entry"
+        ],
+        "formOrdinal": 2,
+        "lastKnownSelector": "#nav_logoff"
+      }
+    },
+    {
+      "id": 4,
+      "role": "tab",
+      "label": "Header",
+      "inForm": true,
+      "inDialog": false,
+      "selector": "#tab_header",
+      "fingerprint": {
+        "role": "tab",
+        "tag": "button",
+        "labelTokens": [
+          "header"
+        ],
+        "nameTokens": [
+          "tab",
+          "header"
+        ],
+        "neighborTokens": [
+          "invoice",
+          "entry",
+          "amounts",
+          "payment",
+          "header",
+          "vendor",
+          "identifier",
+          "purchase_order",
+          "as",
+          "printed",
+          "date",
+          "month",
+          "first",
+          "cost",
+          "center",
+          "ledger",
+          "account",
+          "select",
+          "mfg",
+          "log",
+          "ops",
+          "med",
+          "from",
+          "amount"
+        ],
+        "formOrdinal": 0,
+        "lastKnownSelector": "#tab_header"
+      },
+      "selected": true
+    },
+    {
+      "id": 5,
+      "role": "tab",
+      "label": "Amounts",
+      "inForm": true,
+      "inDialog": false,
+      "selector": "#tab_amounts",
+      "fingerprint": {
+        "role": "tab",
+        "tag": "button",
+        "labelTokens": [
+          "amounts"
+        ],
+        "nameTokens": [
+          "tab",
+          "amounts"
+        ],
+        "neighborTokens": [
+          "invoice",
+          "entry",
+          "header",
+          "payment",
+          "vendor",
+          "identifier",
+          "purchase_order",
+          "as",
+          "printed",
+          "date",
+          "month",
+          "first",
+          "cost",
+          "center",
+          "ledger",
+          "account",
+          "select",
+          "mfg",
+          "log",
+          "ops",
+          "med",
+          "from",
+          "amounts",
+          "amount"
+        ],
+        "formOrdinal": 1,
+        "lastKnownSelector": "#tab_amounts"
+      },
+      "selected": false
+    },
+    {
+      "id": 6,
+      "role": "tab",
+      "label": "Payment",
+      "inForm": true,
+      "inDialog": false,
+      "selector": "#tab_payment",
+      "fingerprint": {
+        "role": "tab",
+        "tag": "button",
+        "labelTokens": [
+          "payment"
+        ],
+        "nameTokens": [
+          "tab",
+          "payment"
+        ],
+        "neighborTokens": [
+          "invoice",
+          "entry",
+          "header",
+          "amounts",
+          "vendor",
+          "identifier",
+          "purchase_order",
+          "as",
+          "printed",
+          "date",
+          "month",
+          "first",
+          "cost",
+          "center",
+          "ledger",
+          "account",
+          "select",
+          "mfg",
+          "log",
+          "ops",
+          "med",
+          "from",
+          "amount",
+          "currency"
+        ],
+        "formOrdinal": 2,
+        "lastKnownSelector": "#tab_payment"
+      },
+      "selected": false
+    },
+    {
+      "id": 7,
+      "role": "textbox",
+      "label": "Vendor ID",
+      "inForm": true,
+      "inDialog": false,
+      "selector": "#vendor_id",
+      "fingerprint": {
+        "role": "textbox",
+        "tag": "input",
+        "labelTokens": [
+          "vendor",
+          "identifier"
+        ],
+        "nameTokens": [
+          "vendor",
+          "identifier"
+        ],
+        "neighborTokens": [
+          "vendor",
+          "identifier",
+          "invoice",
+          "header"
+        ],
+        "formOrdinal": 3,
+        "lastKnownSelector": "#vendor_id",
+        "inputType": "text"
+      },
+      "value": "",
+      "required": true
+    },
+    {
+      "id": 8,
+      "role": "textbox",
+      "label": "PO Number",
+      "inForm": true,
+      "inDialog": false,
+      "selector": "#po_number",
+      "fingerprint": {
+        "role": "textbox",
+        "tag": "input",
+        "labelTokens": [
+          "purchase_order",
+          "identifier"
+        ],
+        "nameTokens": [
+          "purchase_order",
+          "identifier"
+        ],
+        "neighborTokens": [
+          "purchase_order",
+          "invoice",
+          "header"
+        ],
+        "formOrdinal": 4,
+        "lastKnownSelector": "#po_number",
+        "inputType": "text"
+      },
+      "value": "",
+      "required": true
+    },
+    {
+      "id": 9,
+      "role": "textbox",
+      "label": "Invoice Number",
+      "inForm": true,
+      "inDialog": false,
+      "selector": "#invoice_number",
+      "fingerprint": {
+        "role": "textbox",
+        "tag": "input",
+        "labelTokens": [
+          "invoice",
+          "identifier"
+        ],
+        "nameTokens": [
+          "invoice",
+          "identifier"
+        ],
+        "neighborTokens": [
+          "as",
+          "printed",
+          "invoice",
+          "header"
+        ],
+        "formOrdinal": 5,
+        "lastKnownSelector": "#invoice_number",
+        "inputType": "text"
+      },
+      "value": "",
+      "required": true
+    },
+    {
+      "id": 10,
+      "role": "textbox",
+      "label": "Invoice Date",
+      "inForm": true,
+      "inDialog": false,
+      "selector": "#invoice_date",
+      "fingerprint": {
+        "role": "textbox",
+        "tag": "input",
+        "labelTokens": [
+          "invoice",
+          "date"
+        ],
+        "nameTokens": [
+          "invoice",
+          "date"
+        ],
+        "neighborTokens": [
+          "month",
+          "first",
+          "invoice",
+          "header"
+        ],
+        "formOrdinal": 6,
+        "lastKnownSelector": "#invoice_date",
+        "inputType": "text",
+        "placeholder": "MM/DD/YYYY"
+      },
+      "value": "",
+      "required": true
+    },
+    {
+      "id": 11,
+      "role": "combobox",
+      "label": "Cost Center / GL Account",
+      "inForm": true,
+      "inDialog": false,
+      "selector": "#cost_center",
+      "fingerprint": {
+        "role": "combobox",
+        "tag": "select",
+        "labelTokens": [
+          "cost",
+          "center",
+          "ledger",
+          "account"
+        ],
+        "nameTokens": [
+          "cost",
+          "center"
+        ],
+        "neighborTokens": [
+          "select",
+          "mfg",
+          "log",
+          "ops",
+          "med",
+          "from",
+          "purchase_order",
+          "invoice",
+          "header"
+        ],
+        "formOrdinal": 7,
+        "lastKnownSelector": "#cost_center"
+      },
+      "options": [
+        "4010-MFG",
+        "4020-LOG",
+        "4090-OPS",
+        "4110-MED"
+      ]
+    },
+    {
+      "id": 12,
+      "role": "textbox",
+      "label": "Invoice Total (USD)",
+      "inForm": true,
+      "inDialog": false,
+      "selector": "#gross_amount",
+      "fingerprint": {
+        "role": "textbox",
+        "tag": "input",
+        "labelTokens": [
+          "invoice",
+          "amount",
+          "currency"
+        ],
+        "nameTokens": [
+          "amount"
+        ],
+        "neighborTokens": [
+          "amount",
+          "including",
+          "tax",
+          "amounts"
+        ],
+        "formOrdinal": 8,
+        "lastKnownSelector": "#gross_amount",
+        "inputType": "text"
+      },
+      "value": "",
+      "required": true,
+      "inTab": "Amounts"
+    },
+    {
+      "id": 13,
+      "role": "textbox",
+      "label": "Tax Rate (%)",
+      "inForm": true,
+      "inDialog": false,
+      "selector": "#tax_rate",
+      "fingerprint": {
+        "role": "textbox",
+        "tag": "input",
+        "labelTokens": [
+          "tax",
+          "rate"
+        ],
+        "nameTokens": [
+          "tax",
+          "rate"
+        ],
+        "neighborTokens": [
+          "rate",
+          "amounts"
+        ],
+        "formOrdinal": 9,
+        "lastKnownSelector": "#tax_rate",
+        "inputType": "text"
+      },
+      "value": "",
+      "inTab": "Amounts"
+    },
+    {
+      "id": 14,
+      "role": "textbox",
+      "label": "Line Items",
+      "inForm": true,
+      "inDialog": false,
+      "selector": "#line_items",
+      "fingerprint": {
+        "role": "textbox",
+        "tag": "input",
+        "labelTokens": [
+          "line",
+          "item"
+        ],
+        "nameTokens": [
+          "line",
+          "item"
+        ],
+        "neighborTokens": [
+          "count",
+          "invoice",
+          "line",
+          "amounts"
+        ],
+        "formOrdinal": 10,
+        "lastKnownSelector": "#line_items",
+        "inputType": "text"
+      },
+      "value": "",
+      "inTab": "Amounts"
+    },
+    {
+      "id": 15,
+      "role": "textbox",
+      "label": "Payee IBAN",
+      "inForm": true,
+      "inDialog": false,
+      "selector": "#payee_iban",
+      "fingerprint": {
+        "role": "textbox",
+        "tag": "input",
+        "labelTokens": [
+          "payee",
+          "account"
+        ],
+        "nameTokens": [
+          "payee",
+          "account"
+        ],
+        "neighborTokens": [
+          "payee",
+          "account",
+          "payment"
+        ],
+        "formOrdinal": 11,
+        "lastKnownSelector": "#payee_iban",
+        "inputType": "text"
+      },
+      "value": "",
+      "required": true,
+      "inTab": "Payment"
+    },
+    {
+      "id": 16,
+      "role": "textbox",
+      "label": "Override code",
+      "inForm": true,
+      "inDialog": false,
+      "selector": "#override_code",
+      "fingerprint": {
+        "role": "textbox",
+        "tag": "input",
+        "labelTokens": [
+          "override",
+          "identifier"
+        ],
+        "nameTokens": [
+          "override",
+          "identifier"
+        ],
+        "neighborTokens": [
+          "override",
+          "approval",
+          "ovr",
+          "payment"
+        ],
+        "formOrdinal": 12,
+        "lastKnownSelector": "#override_code",
+        "inputType": "text"
+      },
+      "value": "",
+      "inTab": "Payment"
+    },
+    {
+      "id": 17,
+      "role": "button",
+      "label": "Post to General Ledger",
+      "inForm": true,
+      "inDialog": false,
+      "selector": "#btn_post",
+      "fingerprint": {
+        "role": "button",
+        "tag": "button",
+        "labelTokens": [
+          "post",
+          "general",
+          "ledger"
+        ],
+        "nameTokens": [
+          "post"
+        ],
+        "neighborTokens": [
+          "clear",
+          "form"
+        ],
+        "formOrdinal": 13,
+        "lastKnownSelector": "#btn_post"
+      }
+    },
+    {
+      "id": 18,
+      "role": "button",
+      "label": "Clear form",
+      "inForm": true,
+      "inDialog": false,
+      "selector": "#btn_clear",
+      "fingerprint": {
+        "role": "button",
+        "tag": "button",
+        "labelTokens": [
+          "clear",
+          "form"
+        ],
+        "nameTokens": [
+          "clear"
+        ],
+        "neighborTokens": [
+          "post",
+          "general",
+          "ledger"
+        ],
+        "formOrdinal": 14,
+        "lastKnownSelector": "#btn_clear"
+      }
+    },
+    {
+      "id": 19,
+      "role": "link",
+      "label": "Reset demo data",
+      "inForm": false,
+      "inDialog": false,
+      "selector": "#reset_demo",
+      "fingerprint": {
+        "role": "link",
+        "tag": "a",
+        "labelTokens": [
+          "reset",
+          "demo",
+          "data"
+        ],
+        "nameTokens": [
+          "reset",
+          "demo"
+        ],
+        "neighborTokens": [
+          "omni",
+          "corp",
+          "systems",
+          "best",
+          "viewed",
+          "internet",
+          "explorer",
+          "fictional",
+          "portal",
+          "forward",
+          "deploy",
+          "os",
+          "all",
+          "data",
+          "is",
+          "synthetic"
+        ],
+        "formOrdinal": 18,
+        "lastKnownSelector": "#reset_demo"
+      }
+    }
+  ],
+  "lines": [
+    "[1] link \"PO Search\"",
+    "[2] link \"Invoice Entry\"",
+    "[3] link \"Log off\"",
+    "[4] tab \"Header\" selected",
+    "[5] tab \"Amounts\"",
+    "[6] tab \"Payment\"",
+    "[7] textbox \"Vendor ID\" value=\"\" required",
+    "[8] textbox \"PO Number\" value=\"\" required",
+    "[9] textbox \"Invoice Number\" value=\"\" required",
+    "[10] textbox \"Invoice Date\" value=\"\" required",
+    "[11] combobox \"Cost Center / GL Account\" options=[\"4010-MFG\",\"4020-LOG\",\"4090-OPS\",\"4110-MED\"]",
+    "[12] textbox \"Invoice Total (USD)\" value=\"\" required (tab \"Amounts\")",
+    "[13] textbox \"Tax Rate (%)\" value=\"\" (tab \"Amounts\")",
+    "[14] textbox \"Line Items\" value=\"\" (tab \"Amounts\")",
+    "[15] textbox \"Payee IBAN\" value=\"\" required (tab \"Payment\")",
+    "[16] textbox \"Override code\" value=\"\" (tab \"Payment\")",
+    "[17] button \"Post to General Ledger\"",
+    "[18] button \"Clear form\"",
+    "[19] link \"Reset demo data\""
+  ],
+  "text": "[1] link \"PO Search\"\n[2] link \"Invoice Entry\"\n[3] link \"Log off\"\n[4] tab \"Header\" selected\n[5] tab \"Amounts\"\n[6] tab \"Payment\"\n[7] textbox \"Vendor ID\" value=\"\" required\n[8] textbox \"PO Number\" value=\"\" required\n[9] textbox \"Invoice Number\" value=\"\" required\n[10] textbox \"Invoice Date\" value=\"\" required\n[11] combobox \"Cost Center / GL Account\" options=[\"4010-MFG\",\"4020-LOG\",\"4090-OPS\",\"4110-MED\"]\n[12] textbox \"Invoice Total (USD)\" value=\"\" required (tab \"Amounts\")\n[13] textbox \"Tax Rate (%)\" value=\"\" (tab \"Amounts\")\n[14] textbox \"Line Items\" value=\"\" (tab \"Amounts\")\n[15] textbox \"Payee IBAN\" value=\"\" required (tab \"Payment\")\n[16] textbox \"Override code\" value=\"\" (tab \"Payment\")\n[17] button \"Post to General Ledger\"\n[18] button \"Clear form\"\n[19] link \"Reset demo data\"",
+  "rawHtml": "",
+  "ms": 0
+}
