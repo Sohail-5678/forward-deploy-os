@@ -1,0 +1,105 @@
+{
+  "features": [
+    "agree_frac",
+    "amount_abs_delta_log",
+    "amount_rel_delta",
+    "pdf_csv_amount_mismatch",
+    "mapping_score",
+    "normalizer_load",
+    "pdf_missing_frac",
+    "pdf_ambiguity",
+    "has_pdf",
+    "vendor_known",
+    "payee_match",
+    "po_found",
+    "security_signal"
+  ],
+  "weights": [
+    3.670653,
+    -4.373807,
+    -1.395673,
+    1.418868,
+    -0.104274,
+    -0.19771,
+    -0.288297,
+    -0.350993,
+    0.05156,
+    0.150851,
+    4.237873,
+    3.900538,
+    -1.020816
+  ],
+  "bias": -9.285758,
+  "trainedOn": 700,
+  "heldOut": 300,
+  "seed": 8312026,
+  "metrics": {
+    "brier": 0.0753,
+    "ece": 0.049,
+    "baselineBrier": 0.1686,
+    "baselineEce": 0.1726,
+    "reliability": [
+      {
+        "bin": 0,
+        "predicted": 0.0606,
+        "observed": 0,
+        "count": 9
+      },
+      {
+        "bin": 1,
+        "predicted": 0.154,
+        "observed": 0,
+        "count": 9
+      },
+      {
+        "bin": 2,
+        "predicted": 0.2406,
+        "observed": 0.0833,
+        "count": 12
+      },
+      {
+        "bin": 3,
+        "predicted": 0.3548,
+        "observed": 0.2857,
+        "count": 7
+      },
+      {
+        "bin": 4,
+        "predicted": 0.4439,
+        "observed": 0.25,
+        "count": 8
+      },
+      {
+        "bin": 5,
+        "predicted": 0.5325,
+        "observed": 0.25,
+        "count": 4
+      },
+      {
+        "bin": 6,
+        "predicted": 0.6372,
+        "observed": 0.5,
+        "count": 2
+      },
+      {
+        "bin": 7,
+        "predicted": 0,
+        "observed": 0,
+        "count": 0
+      },
+      {
+        "bin": 8,
+        "predicted": 0.8661,
+        "observed": 0.76,
+        "count": 25
+      },
+      {
+        "bin": 9,
+        "predicted": 0.9251,
+        "observed": 0.9464,
+        "count": 224
+      }
+    ]
+  },
+  "fittedAt": "scripts/fit-calibrator.ts"
+}

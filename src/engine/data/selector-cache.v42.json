@@ -1,0 +1,376 @@
+{
+  "portal": "OmniCorp ERP v4.2 (clean)",
+  "entries": [
+    {
+      "key": "index.html:logon",
+      "fingerprint": {
+        "role": "button",
+        "tag": "button",
+        "labelTokens": [
+          "logon"
+        ],
+        "nameTokens": [
+          "logon"
+        ],
+        "neighborTokens": [],
+        "formOrdinal": 2,
+        "lastKnownSelector": "#btn_logon"
+      },
+      "recordedAt": "2026-10-09T17:00:00.000Z"
+    },
+    {
+      "key": "index.html:password",
+      "fingerprint": {
+        "role": "textbox",
+        "tag": "input",
+        "labelTokens": [
+          "password"
+        ],
+        "nameTokens": [
+          "password"
+        ],
+        "neighborTokens": [],
+        "formOrdinal": 1,
+        "lastKnownSelector": "#password",
+        "inputType": "password"
+      },
+      "recordedAt": "2026-10-09T17:00:00.000Z"
+    },
+    {
+      "key": "index.html:username",
+      "fingerprint": {
+        "role": "textbox",
+        "tag": "input",
+        "labelTokens": [
+          "user"
+        ],
+        "nameTokens": [
+          "user"
+        ],
+        "neighborTokens": [],
+        "formOrdinal": 0,
+        "lastKnownSelector": "#username",
+        "inputType": "text"
+      },
+      "recordedAt": "2026-10-09T17:00:00.000Z"
+    },
+    {
+      "key": "invoice-entry.html:cost_center",
+      "fingerprint": {
+        "role": "combobox",
+        "tag": "select",
+        "labelTokens": [
+          "cost",
+          "center",
+          "ledger",
+          "account"
+        ],
+        "nameTokens": [
+          "cost",
+          "center"
+        ],
+        "neighborTokens": [
+          "select",
+          "mfg",
+          "log",
+          "ops",
+          "med",
+          "from",
+          "purchase_order",
+          "invoice",
+          "header"
+        ],
+        "formOrdinal": 7,
+        "lastKnownSelector": "#cost_center"
+      },
+      "recordedAt": "2026-10-09T17:00:00.000Z"
+    },
+    {
+      "key": "invoice-entry.html:gross_amount_usd",
+      "fingerprint": {
+        "role": "textbox",
+        "tag": "input",
+        "labelTokens": [
+          "invoice",
+          "amount",
+          "currency"
+        ],
+        "nameTokens": [
+          "amount"
+        ],
+        "neighborTokens": [
+          "amount",
+          "including",
+          "tax",
+          "amounts"
+        ],
+        "formOrdinal": 8,
+        "lastKnownSelector": "#gross_amount",
+        "inputType": "text"
+      },
+      "recordedAt": "2026-10-09T17:00:00.000Z"
+    },
+    {
+      "key": "invoice-entry.html:invoice_date",
+      "fingerprint": {
+        "role": "textbox",
+        "tag": "input",
+        "labelTokens": [
+          "invoice",
+          "date"
+        ],
+        "nameTokens": [
+          "invoice",
+          "date"
+        ],
+        "neighborTokens": [
+          "month",
+          "first",
+          "invoice",
+          "header"
+        ],
+        "formOrdinal": 6,
+        "lastKnownSelector": "#invoice_date",
+        "inputType": "text",
+        "placeholder": "MM/DD/YYYY"
+      },
+      "recordedAt": "2026-10-09T17:00:00.000Z"
+    },
+    {
+      "key": "invoice-entry.html:invoice_number",
+      "fingerprint": {
+        "role": "textbox",
+        "tag": "input",
+        "labelTokens": [
+          "invoice",
+          "identifier"
+        ],
+        "nameTokens": [
+          "invoice",
+          "identifier"
+        ],
+        "neighborTokens": [
+          "as",
+          "printed",
+          "invoice",
+          "header"
+        ],
+        "formOrdinal": 5,
+        "lastKnownSelector": "#invoice_number",
+        "inputType": "text"
+      },
+      "recordedAt": "2026-10-09T17:00:00.000Z"
+    },
+    {
+      "key": "invoice-entry.html:line_items_count",
+      "fingerprint": {
+        "role": "textbox",
+        "tag": "input",
+        "labelTokens": [
+          "line",
+          "item"
+        ],
+        "nameTokens": [
+          "line",
+          "item"
+        ],
+        "neighborTokens": [
+          "count",
+          "invoice",
+          "line",
+          "amounts"
+        ],
+        "formOrdinal": 10,
+        "lastKnownSelector": "#line_items",
+        "inputType": "text"
+      },
+      "recordedAt": "2026-10-09T17:00:00.000Z"
+    },
+    {
+      "key": "invoice-entry.html:override_code",
+      "fingerprint": {
+        "role": "textbox",
+        "tag": "input",
+        "labelTokens": [
+          "override",
+          "identifier"
+        ],
+        "nameTokens": [
+          "override",
+          "identifier"
+        ],
+        "neighborTokens": [
+          "override",
+          "approval",
+          "ovr",
+          "payment"
+        ],
+        "formOrdinal": 12,
+        "lastKnownSelector": "#override_code",
+        "inputType": "text"
+      },
+      "recordedAt": "2026-10-09T17:00:00.000Z"
+    },
+    {
+      "key": "invoice-entry.html:payee_iban",
+      "fingerprint": {
+        "role": "textbox",
+        "tag": "input",
+        "labelTokens": [
+          "payee",
+          "account"
+        ],
+        "nameTokens": [
+          "payee",
+          "account"
+        ],
+        "neighborTokens": [
+          "payee",
+          "account",
+          "payment"
+        ],
+        "formOrdinal": 11,
+        "lastKnownSelector": "#payee_iban",
+        "inputType": "text"
+      },
+      "recordedAt": "2026-10-09T17:00:00.000Z"
+    },
+    {
+      "key": "invoice-entry.html:po_number",
+      "fingerprint": {
+        "role": "textbox",
+        "tag": "input",
+        "labelTokens": [
+          "purchase_order",
+          "identifier"
+        ],
+        "nameTokens": [
+          "purchase_order",
+          "identifier"
+        ],
+        "neighborTokens": [
+          "purchase_order",
+          "invoice",
+          "header"
+        ],
+        "formOrdinal": 4,
+        "lastKnownSelector": "#po_number",
+        "inputType": "text"
+      },
+      "recordedAt": "2026-10-09T17:00:00.000Z"
+    },
+    {
+      "key": "invoice-entry.html:submit",
+      "fingerprint": {
+        "role": "button",
+        "tag": "button",
+        "labelTokens": [
+          "post",
+          "general",
+          "ledger"
+        ],
+        "nameTokens": [
+          "post"
+        ],
+        "neighborTokens": [
+          "clear",
+          "form"
+        ],
+        "formOrdinal": 13,
+        "lastKnownSelector": "#btn_post"
+      },
+      "recordedAt": "2026-10-09T17:00:00.000Z"
+    },
+    {
+      "key": "invoice-entry.html:tax_rate",
+      "fingerprint": {
+        "role": "textbox",
+        "tag": "input",
+        "labelTokens": [
+          "tax",
+          "rate"
+        ],
+        "nameTokens": [
+          "tax",
+          "rate"
+        ],
+        "neighborTokens": [
+          "rate",
+          "amounts"
+        ],
+        "formOrdinal": 9,
+        "lastKnownSelector": "#tax_rate",
+        "inputType": "text"
+      },
+      "recordedAt": "2026-10-09T17:00:00.000Z"
+    },
+    {
+      "key": "invoice-entry.html:vendor_id",
+      "fingerprint": {
+        "role": "textbox",
+        "tag": "input",
+        "labelTokens": [
+          "vendor",
+          "identifier"
+        ],
+        "nameTokens": [
+          "vendor",
+          "identifier"
+        ],
+        "neighborTokens": [
+          "vendor",
+          "identifier",
+          "invoice",
+          "header"
+        ],
+        "formOrdinal": 3,
+        "lastKnownSelector": "#vendor_id",
+        "inputType": "text"
+      },
+      "recordedAt": "2026-10-09T17:00:00.000Z"
+    },
+    {
+      "key": "po-search.html:po_number",
+      "fingerprint": {
+        "role": "textbox",
+        "tag": "input",
+        "labelTokens": [
+          "purchase_order",
+          "identifier"
+        ],
+        "nameTokens": [
+          "purchase_order",
+          "query"
+        ],
+        "neighborTokens": [
+          "search"
+        ],
+        "formOrdinal": 0,
+        "lastKnownSelector": "#po_query",
+        "inputType": "text",
+        "placeholder": "PO-00000"
+      },
+      "recordedAt": "2026-10-09T17:00:00.000Z"
+    },
+    {
+      "key": "po-search.html:search",
+      "fingerprint": {
+        "role": "button",
+        "tag": "button",
+        "labelTokens": [
+          "search"
+        ],
+        "nameTokens": [
+          "search"
+        ],
+        "neighborTokens": [
+          "purchase_order",
+          "identifier"
+        ],
+        "formOrdinal": 1,
+        "lastKnownSelector": "#btn_search"
+      },
+      "recordedAt": "2026-10-09T17:00:00.000Z"
+    }
+  ]
+}

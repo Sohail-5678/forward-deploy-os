@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniCorp ERP v4.2 - Invoice Entry</title>
+<link rel="stylesheet" href="/legacy/omnicorp/portal.css">
+</head>
+<body data-page="invoice-entry">
+<table data-ui="frame" class="frame" role="presentation">
+  <tr><td data-ui="titlebar" class="titlebar">OmniCorp Enterprise Resource Portal <span data-ui="ver" class="ver">v4.2 (build 2009.11.03) &middot; Accounts Payable</span></td></tr>
+  <tr><td data-ui="menubar" class="menubar"><a id="nav_po" href="/legacy/omnicorp/po-search.html">PO Search</a> | <a id="nav_invoice" href="/legacy/omnicorp/invoice-entry.html" aria-current="page">Invoice Entry</a> | <a id="nav_logoff" href="/legacy/omnicorp/index.html">Log off</a></td></tr>
+  <tr><td data-ui="content" class="content">
+    <h1>Invoice Entry</h1>
+    <div id="msg_banner" data-ui="banner" class="banner" role="alert" hidden></div>
+    <div data-ui="panel" class="panel">
+      <form id="invoice_form" name="invoice_form" novalidate autocomplete="off">
+        <div role="tablist" class="tabs" aria-label="Invoice sections">
+          <button type="button" role="tab" id="tab_header" aria-controls="panel_header" aria-selected="true">Header</button>
+          <button type="button" role="tab" id="tab_amounts" aria-controls="panel_amounts" aria-selected="false" tabindex="-1">Amounts</button>
+          <button type="button" role="tab" id="tab_payment" aria-controls="panel_payment" aria-selected="false" tabindex="-1">Payment</button>
+        </div>
+
+        <div role="tabpanel" id="panel_header" aria-labelledby="tab_header">
+          <fieldset>
+            <legend>Invoice header</legend>
+            <table data-ui="form" class="form" role="presentation">
+              <tbody>
+                <tr>
+                  <td data-ui="lbl" class="lbl"><label for="vendor_id">Vendor ID</label></td>
+                  <td><input type="text" id="vendor_id" name="vendor_id" required></td>
+                  <td data-ui="hint" class="hint">supplier code, e.g. V-1042</td>
+                </tr>
+                <tr>
+                  <td data-ui="lbl" class="lbl"><label for="po_number">PO Number</label></td>
+                  <td><input type="text" id="po_number" name="po_number" required></td>
+                  <td data-ui="hint" class="hint">purchase order, e.g. PO-88412</td>
+                </tr>
+                <tr>
+                  <td data-ui="lbl" class="lbl"><label for="invoice_number">Invoice Number</label></td>
+                  <td><input type="text" id="invoice_number" name="invoice_number" required></td>
+                  <td data-ui="hint" class="hint">as printed on the invoice</td>
+                </tr>
+                <tr>
+                  <td data-ui="lbl" class="lbl"><label for="invoice_date">Invoice Date</label></td>
+                  <td><input type="text" id="invoice_date" name="invoice_date" placeholder="MM/DD/YYYY" required></td>
+                  <td data-ui="hint" class="hint">month first</td>
+                </tr>
+                <tr>
+                  <td data-ui="lbl" class="lbl"><label for="cost_center">Cost Center / GL Account</label></td>
+                  <td>
+                    <select id="cost_center" name="cost_center">
+                      <option value="">-- select --</option>
+                      <option value="4010-MFG">4010-MFG</option>
+                      <option value="4020-LOG">4020-LOG</option>
+                      <option value="4090-OPS">4090-OPS</option>
+                      <option value="4110-MED">4110-MED</option>
+                    </select>
+                  </td>
+                  <td data-ui="hint" class="hint">from the purchase order</td>
+                </tr>
+              </tbody>
+            </table>
+          </fieldset>
+        </div>
+
+        <div role="tabpanel" id="panel_amounts" aria-labelledby="tab_amounts" hidden>
+          <fieldset>
+            <legend>Amounts</legend>
+            <table data-ui="form" class="form" role="presentation">
+              <tbody>
+                <tr>
+                  <td data-ui="lbl" class="lbl"><label for="gross_amount">Invoice Total (USD)</label></td>
+                  <td><input type="text" id="gross_amount" name="gross_amount" required></td>
+                  <td data-ui="hint" class="hint">gross, including tax</td>
+                </tr>
+                <tr>
+                  <td data-ui="lbl" class="lbl"><label for="tax_rate">Tax Rate (%)</label></td>
+                  <td><input type="text" id="tax_rate" name="tax_rate"></td>
+                  <td data-ui="hint" class="hint">percent, e.g. 8.25</td>
+                </tr>
+                <tr>
+                  <td data-ui="lbl" class="lbl"><label for="line_items">Line Items</label></td>
+                  <td><input type="text" id="line_items" name="line_items"></td>
+                  <td data-ui="hint" class="hint">count of invoice lines</td>
+                </tr>
+              </tbody>
+            </table>
+          </fieldset>
+        </div>
+
+        <div role="tabpanel" id="panel_payment" aria-labelledby="tab_payment" hidden>
+          <fieldset>
+            <legend>Payment</legend>
+            <table data-ui="form" class="form" role="presentation">
+              <tbody>
+                <tr>
+                  <td data-ui="lbl" class="lbl"><label for="payee_iban">Payee IBAN</label></td>
+                  <td><input type="text" id="payee_iban" name="payee_iban" required></td>
+                  <td data-ui="hint" class="hint">remit-to bank account</td>
+                </tr>
+                <tr id="row_override" hidden>
+                  <td data-ui="lbl" class="lbl"><label for="override_code">Override code</label></td>
+                  <td><input type="text" id="override_code" name="override_code"></td>
+                  <td data-ui="hint" class="hint">supervisor approval, e.g. OVR-1A2B3C</td>
+                </tr>
+              </tbody>
+            </table>
+          </fieldset>
+        </div>
+
+        <table data-ui="actions" class="actions" role="presentation">
+          <tr>
+            <td><button type="submit" id="btn_post" class="btn">Post to General Ledger</button>
+              <button type="reset" id="btn_clear" class="btn">Clear form</button></td>
+          </tr>
+        </table>
+        <div id="post_status" class="status" role="status"></div>
+      </form>
+    </div>
+  </td></tr>
+  <tr><td data-ui="footer" class="footer">&copy; 2009 OmniCorp Systems. Best viewed in Internet Explorer 8 at 1024&times;768. &middot; <a id="reset_demo" href="#">Reset demo data</a> &middot; Fictional portal for ForwardDeploy OS. All data is synthetic.</td></tr>
+</table>
+<script src="/legacy/omnicorp/ledger.js"></script>
+<script src="/legacy/omnicorp/portal.js"></script>
+<script src="/legacy/omnicorp/chaos.js"></script>
+</body>
+</html>

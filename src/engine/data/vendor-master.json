@@ -1,0 +1,13 @@
+{
+  "_note": "Synthetic vendor master. Names are fictional. IBANs are the publicly documented example IBANs from the ISO 13616 / SWIFT registry examples, not real accounts (rule S6).",
+  "vendors": [
+    { "vendor_id": "V-1042", "name": "Apex Glass & Glazing Supply", "iban": "GB82WEST12345698765432", "country": "GB" },
+    { "vendor_id": "V-2210", "name": "GlobalFreight Logistics", "iban": "NL91ABNA0417164300", "country": "NL" },
+    { "vendor_id": "V-3307", "name": "MedCore Surgical Supplies", "iban": "BE68539007547034", "country": "BE" },
+    { "vendor_id": "V-4471", "name": "ShadowVendor LLC", "iban": "AT611904300234573201", "country": "AT" },
+    { "vendor_id": "V-5120", "name": "Cobalt Ridge Industrial", "iban": "FR1420041010050500013M02606", "country": "FR" },
+    { "vendor_id": "V-6038", "name": "Lumen Harbor Electrical", "iban": "ES9121000418450200051332", "country": "ES" },
+    { "vendor_id": "V-7713", "name": "Tidewater Office Systems", "iban": "CH9300762011623852957", "country": "CH" },
+    { "vendor_id": "V-8802", "name": "Granite Peak Facilities", "iban": "IT60X0542811101000000123456", "country": "IT" }
+  ]
+}

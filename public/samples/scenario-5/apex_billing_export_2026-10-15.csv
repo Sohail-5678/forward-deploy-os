@@ -1,0 +1,4 @@
+supplier_code,client_ref_no,procurement_doc_id,invoice_number,dt_issued,gross_inv_val,vat_pct,line_items_count,beneficiary_acct,memo
+V-1042,C-7781,PO-71311,INV-AG-24201,15.10.2026,"$12,680.00 USD",8.25%,4,GB82 WEST 1234 5698 7654 32,"Insulated units, bay 2"
+V-1042,C-7781,PO-71312,INV-AG-24202,14.10.2026,"$5,299.50 USD",8.25%,2,GB82 WEST 1234 5698 7654 32,
+V-1042,C-7781,PO-71313,INV-AG-24203,13.10.2026,"$19,400.25 USD",8.25%,6,GB82 WEST 1234 5698 7654 32,Skylight retrofit

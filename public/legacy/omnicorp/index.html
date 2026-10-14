@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniCorp ERP v4.2 - Log on</title>
+<link rel="stylesheet" href="/legacy/omnicorp/portal.css">
+</head>
+<body data-page="index">
+<table data-ui="frame" class="frame" role="presentation">
+  <tr><td data-ui="titlebar" class="titlebar">OmniCorp Enterprise Resource Portal <span data-ui="ver" class="ver">v4.2 (build 2009.11.03) &middot; Accounts Payable</span></td></tr>
+  <tr><td data-ui="menubar" class="menubar">Welcome. Please log on to continue.</td></tr>
+  <tr><td data-ui="content" class="content">
+    <h1>Accounts Payable &ndash; Log on</h1>
+    <div id="msg_banner" data-ui="banner" class="banner" role="alert" hidden></div>
+    <div data-ui="panel" class="panel">
+      <form id="login_form" name="login_form" autocomplete="off">
+        <table data-ui="form" class="form" role="presentation">
+          <tr>
+            <td data-ui="lbl" class="lbl"><label for="username">User name</label></td>
+            <td><input type="text" id="username" name="username" autocomplete="off"></td>
+          </tr>
+          <tr>
+            <td data-ui="lbl" class="lbl"><label for="password">Password</label></td>
+            <td><input type="password" id="password" name="password" autocomplete="off"></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><button type="submit" id="btn_logon" class="btn">Log On</button></td>
+          </tr>
+        </table>
+      </form>
+      <div data-ui="creds" class="creds">Demo credentials for this fictional portal: user <b>fde.demo</b>, password <b>omnicorp2009</b>.
+        Not real authentication: it only sets a session flag in this browser tab.</div>
+    </div>
+  </td></tr>
+  <tr><td data-ui="footer" class="footer">&copy; 2009 OmniCorp Systems. Best viewed in Internet Explorer 8 at 1024&times;768. &middot; <a id="reset_demo" href="#">Reset demo data</a> &middot; Fictional portal for ForwardDeploy OS. All data is synthetic.</td></tr>
+</table>
+<script src="/legacy/omnicorp/ledger.js"></script>
+<script src="/legacy/omnicorp/portal.js"></script>
+<script src="/legacy/omnicorp/chaos.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+{
+  "_note": "Synthetic ERP purchase orders for the fictional customer OmniCorp. Amounts in integer cents.",
+  "purchaseOrders": [
+    { "po_number": "PO-71301", "vendor_id": "V-1042", "customer_id": "C-7781", "authorized_cents": 1845000, "cost_center": "4010-MFG", "status": "OPEN", "description": "Tempered glass panels, line 3" },
+    { "po_number": "PO-71302", "vendor_id": "V-1042", "customer_id": "C-7781", "authorized_cents": 981240, "cost_center": "4010-MFG", "status": "OPEN", "description": "Glazing sealant, bulk" },
+    { "po_number": "PO-71303", "vendor_id": "V-1042", "customer_id": "C-7781", "authorized_cents": 2206000, "cost_center": "4010-MFG", "status": "OPEN", "description": "Laminated safety glass" },
+    { "po_number": "PO-71304", "vendor_id": "V-1042", "customer_id": "C-7781", "authorized_cents": 437515, "cost_center": "4090-OPS", "status": "OPEN", "description": "Replacement window units" },
+    { "po_number": "PO-71305", "vendor_id": "V-1042", "customer_id": "C-7781", "authorized_cents": 3120000, "cost_center": "4010-MFG", "status": "OPEN", "description": "Curtain wall glazing, phase 2" },
+    { "po_number": "PO-71306", "vendor_id": "V-1042", "customer_id": "C-7781", "authorized_cents": 764080, "cost_center": "4090-OPS", "status": "OPEN", "description": "Mirror stock, facilities" },
+    { "po_number": "PO-71311", "vendor_id": "V-1042", "customer_id": "C-7781", "authorized_cents": 1268000, "cost_center": "4010-MFG", "status": "OPEN", "description": "Insulated glass units" },
+    { "po_number": "PO-71312", "vendor_id": "V-1042", "customer_id": "C-7781", "authorized_cents": 529950, "cost_center": "4010-MFG", "status": "OPEN", "description": "Glass shelving, warehouse" },
+    { "po_number": "PO-71313", "vendor_id": "V-1042", "customer_id": "C-7781", "authorized_cents": 1940025, "cost_center": "4090-OPS", "status": "OPEN", "description": "Skylight retrofit" },
+    { "po_number": "PO-88411", "vendor_id": "V-2210", "customer_id": "C-7782", "authorized_cents": 632000, "cost_center": "4020-LOG", "status": "OPEN", "description": "Standard LTL freight, October" },
+    { "po_number": "PO-88412", "vendor_id": "V-2210", "customer_id": "C-7782", "authorized_cents": 1240000, "cost_center": "4020-LOG", "status": "OPEN", "description": "Ocean freight, container MSKU-2291" },
+    { "po_number": "PO-60231", "vendor_id": "V-3307", "customer_id": "C-7790", "authorized_cents": 1572600, "cost_center": "4110-MED", "status": "OPEN", "description": "Surgical instrument sets" },
+    { "po_number": "PO-60232", "vendor_id": "V-3307", "customer_id": "C-7790", "authorized_cents": 864050, "cost_center": "4110-MED", "status": "OPEN", "description": "Sterile drapes and gowns" },
+    { "po_number": "PO-60233", "vendor_id": "V-3307", "customer_id": "C-7790", "authorized_cents": 2391000, "cost_center": "4110-MED", "status": "OPEN", "description": "Orthopedic implant kits" },
+    { "po_number": "PO-60240", "vendor_id": "V-3307", "customer_id": "C-7790", "authorized_cents": 1189500, "cost_center": "4110-MED", "status": "OPEN", "description": "Suture packs, quarterly" },
+    { "po_number": "PO-60241", "vendor_id": "V-3307", "customer_id": "C-7790", "authorized_cents": 693420, "cost_center": "4110-MED", "status": "OPEN", "description": "Exam gloves, nitrile" },
+    { "po_number": "PO-60250", "vendor_id": "V-3307", "customer_id": "C-7790", "authorized_cents": 985000, "cost_center": "4110-MED", "status": "OPEN", "description": "Sterilization trays" },
+    { "po_number": "PO-55119", "vendor_id": "V-4471", "customer_id": "C-7781", "authorized_cents": 315000, "cost_center": "4090-OPS", "status": "OPEN", "description": "Facility consulting, September" },
+    { "po_number": "PO-55120", "vendor_id": "V-4471", "customer_id": "C-7781", "authorized_cents": 985000, "cost_center": "4090-OPS", "status": "OPEN", "description": "Facility consulting, October" },
+    { "po_number": "PO-50117", "vendor_id": "V-5120", "customer_id": "C-7781", "authorized_cents": 4410000, "cost_center": "4010-MFG", "status": "OPEN", "description": "Steel brackets, fabricated" },
+    { "po_number": "PO-50118", "vendor_id": "V-6038", "customer_id": "C-7781", "authorized_cents": 1277500, "cost_center": "4090-OPS", "status": "OPEN", "description": "LED retrofit, building C" },
+    { "po_number": "PO-50119", "vendor_id": "V-7713", "customer_id": "C-7782", "authorized_cents": 238990, "cost_center": "4090-OPS", "status": "OPEN", "description": "Copier lease, Q4" },
+    { "po_number": "PO-50120", "vendor_id": "V-8802", "customer_id": "C-7782", "authorized_cents": 1650000, "cost_center": "4090-OPS", "status": "OPEN", "description": "HVAC maintenance contract" },
+    { "po_number": "PO-70988", "vendor_id": "V-1042", "customer_id": "C-7781", "authorized_cents": 1022000, "cost_center": "4010-MFG", "status": "CLOSED", "description": "Float glass, August" }
+  ],
+  "costCenters": ["4010-MFG", "4020-LOG", "4090-OPS", "4110-MED"],
+  "historicalLedger": [
+    { "postingNumber": "GL-2009-004790", "vendor_id": "V-1042", "po_number": "PO-70988", "invoice_number": "INV-AG-23990", "amount_cents": 1022000, "iban": "GB82WEST12345698765432", "postedAt": "2026-09-02T14:12:00.000Z" }
+  ]
+}

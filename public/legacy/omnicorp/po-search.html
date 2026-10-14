@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniCorp ERP v4.2 - Purchase Order Search</title>
+<link rel="stylesheet" href="/legacy/omnicorp/portal.css">
+</head>
+<body data-page="po-search">
+<table data-ui="frame" class="frame" role="presentation">
+  <tr><td data-ui="titlebar" class="titlebar">OmniCorp Enterprise Resource Portal <span data-ui="ver" class="ver">v4.2 (build 2009.11.03) &middot; Accounts Payable</span></td></tr>
+  <tr><td data-ui="menubar" class="menubar"><a id="nav_po" href="/legacy/omnicorp/po-search.html" aria-current="page">PO Search</a> | <a id="nav_invoice" href="/legacy/omnicorp/invoice-entry.html">Invoice Entry</a> | <a id="nav_logoff" href="/legacy/omnicorp/index.html">Log off</a></td></tr>
+  <tr><td data-ui="content" class="content">
+    <h1>Purchase Order Search</h1>
+    <div data-ui="panel" class="panel">
+      <form id="po_search_form" name="po_search_form">
+        <table data-ui="form" class="form" role="presentation">
+          <tr>
+            <td data-ui="lbl" class="lbl"><label for="po_query">PO Number</label></td>
+            <td><input type="text" id="po_query" name="po_query" placeholder="PO-00000" autocomplete="off"></td>
+            <td><button type="submit" id="btn_search" class="btn">Search</button></td>
+          </tr>
+        </table>
+      </form>
+      <div id="search_status" class="status" role="status"></div>
+      <div id="po_results" hidden>
+        <h3>Purchase order</h3>
+        <table data-ui="grid" class="grid" id="po_header">
+          <thead><tr><th>PO Number</th><th>Vendor</th><th>Vendor name</th><th>Authorized (USD)</th><th>Cost center</th><th>Status</th></tr></thead>
+          <tbody id="po_header_rows"></tbody>
+        </table>
+        <h3>Posted invoices</h3>
+        <table data-ui="grid" class="grid" id="posted_invoices">
+          <thead><tr><th>Invoice No.</th><th>Amount (USD)</th><th>Posting No.</th><th>Posted on</th></tr></thead>
+          <tbody id="posted_rows"></tbody>
+        </table>
+      </div>
+      <p data-ui="note" class="note">Tip: open po-search.html?po=PO-88412 to search directly.</p>
+    </div>
+  </td></tr>
+  <tr><td data-ui="footer" class="footer">&copy; 2009 OmniCorp Systems. Best viewed in Internet Explorer 8 at 1024&times;768. &middot; <a id="reset_demo" href="#">Reset demo data</a> &middot; Fictional portal for ForwardDeploy OS. All data is synthetic.</td></tr>
+</table>
+<script src="/legacy/omnicorp/ledger.js"></script>
+<script src="/legacy/omnicorp/portal.js"></script>
+<script src="/legacy/omnicorp/chaos.js"></script>
+</body>
+</html>

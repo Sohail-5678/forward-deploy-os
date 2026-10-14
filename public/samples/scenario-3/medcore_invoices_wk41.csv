@@ -1,0 +1,4 @@
+vendor_id,customer_id,po_number,invoice_number,invoice_date,gross_amount_usd,tax_rate,line_items_count,payee_iban
+V-3307,C-7790,PO-60231,INV-MC-5501,2026-10-07,15726.00,0.0,9,BE68539007547034
+V-3307,C-7790,PO-60232,INV-MC-5502,2026-10-08,8640.50,0.0,4,BE68539007547034
+V-3307,C-7790,PO-60233,INV-MC-5503,2026-10-10,23910.00,0.0,12,BE68539007547034

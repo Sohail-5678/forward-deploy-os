@@ -1,0 +1,131 @@
+{
+  "generatedBy": "scripts/generate-samples.ts",
+  "files": [
+    {
+      "scenario": 1,
+      "path": "scenario-1/apex_billing_export_2026-10-14.csv",
+      "kind": "csv",
+      "sha256": "b7388a3afa91c53d7ec01fc585cbf031ded92be4616065090a776c99cf855ed1",
+      "bytes": 841
+    },
+    {
+      "scenario": 1,
+      "path": "scenario-1/INV-AG-24101.pdf",
+      "kind": "pdf",
+      "sha256": "9ae80ecf612f8475a260184756713ab014015340c598fdc3635b3a4c7a107552",
+      "bytes": 3080
+    },
+    {
+      "scenario": 1,
+      "path": "scenario-1/INV-AG-24102.pdf",
+      "kind": "pdf",
+      "sha256": "37ec73f4972fc4a41604eb6e43c66857a7c755fc5a3f474909257ad67c29c52f",
+      "bytes": 2978
+    },
+    {
+      "scenario": 1,
+      "path": "scenario-1/INV-AG-24103.pdf",
+      "kind": "pdf",
+      "sha256": "a5de1f51fcef2a01b1edd1dcf7c34d24576cd68855982dbf18e2e605e3e8c7b5",
+      "bytes": 3088
+    },
+    {
+      "scenario": 1,
+      "path": "scenario-1/INV-AG-24104.pdf",
+      "kind": "pdf",
+      "sha256": "7939046d0d4cc4f1cea756bbdc5624966ef3c2bf279333058855f2f731eb0cec",
+      "bytes": 2867
+    },
+    {
+      "scenario": 1,
+      "path": "scenario-1/INV-AG-24105.pdf",
+      "kind": "pdf",
+      "sha256": "f1a611b939e9762800229774b07f404739146eaa5bf8c8292f2c7214b44545f7",
+      "bytes": 3084
+    },
+    {
+      "scenario": 1,
+      "path": "scenario-1/INV-AG-24106.pdf",
+      "kind": "pdf",
+      "sha256": "08f0df088f504433ef8d5bdd7703d6eaaaa448fe91a7ee698092c78f8bc0b803",
+      "bytes": 2979
+    },
+    {
+      "scenario": 2,
+      "path": "scenario-2/globalfreight_invoices_oct.csv",
+      "kind": "csv",
+      "sha256": "f0ec812be313b0b80adeef555fdbed86032d597af181213006c1278e8c1e2507",
+      "bytes": 284
+    },
+    {
+      "scenario": 2,
+      "path": "scenario-2/INV-GF-20931.pdf",
+      "kind": "pdf",
+      "sha256": "7181a4b1faa3a989bc6274d07b2bcc6f62dbf564a9938d25fb2f5b1f6a8b0630",
+      "bytes": 2971
+    },
+    {
+      "scenario": 3,
+      "path": "scenario-3/medcore_invoices_wk41.csv",
+      "kind": "csv",
+      "sha256": "97058cb75c070222db464ea43a22a85bfe075170e6881964e061eb8566842022",
+      "bytes": 352
+    },
+    {
+      "scenario": 4,
+      "path": "scenario-4/shadowvendor_invoices.csv",
+      "kind": "csv",
+      "sha256": "f63e1f566daac5faae76000f9818dcc6a4753851a7e92e13f18bdeef6609d262",
+      "bytes": 200
+    },
+    {
+      "scenario": 4,
+      "path": "scenario-4/INV-SV-0666.pdf",
+      "kind": "pdf",
+      "sha256": "ca6bb1e90432ee3b130958121b41e0082692f171117042e900ec72cda7e09ca6",
+      "bytes": 4295
+    },
+    {
+      "scenario": 5,
+      "path": "scenario-5/apex_billing_export_2026-10-15.csv",
+      "kind": "csv",
+      "sha256": "646f544ff062e861b396c152604643a7416f671f9410111d27de54f1ceea7ad7",
+      "bytes": 480
+    },
+    {
+      "scenario": 5,
+      "path": "scenario-5/globalfreight_invoices_oct.csv",
+      "kind": "csv",
+      "sha256": "f0ec812be313b0b80adeef555fdbed86032d597af181213006c1278e8c1e2507",
+      "bytes": 284
+    },
+    {
+      "scenario": 5,
+      "path": "scenario-5/medcore_export_wk42.csv",
+      "kind": "csv",
+      "sha256": "23b469f78c425c267257bbb09d3e7cf97ef908c947bf416355c2d0e259963be5",
+      "bytes": 272
+    },
+    {
+      "scenario": 5,
+      "path": "scenario-5/INV-GF-20931.pdf",
+      "kind": "pdf",
+      "sha256": "7181a4b1faa3a989bc6274d07b2bcc6f62dbf564a9938d25fb2f5b1f6a8b0630",
+      "bytes": 2971
+    },
+    {
+      "scenario": 5,
+      "path": "scenario-5/INV-MC-7781.pdf",
+      "kind": "pdf",
+      "sha256": "cb5b443aa8688e728df025c553ce52a43a7ae8e632c25aebd7a9fa36258f3c9d",
+      "bytes": 4106
+    },
+    {
+      "scenario": 0,
+      "path": "sandbox/cobalt_ridge_export_drifted.csv",
+      "kind": "csv",
+      "sha256": "2343894826b95aed0e96c0be7dcaf2fc31f4c6abdd82a7dd69722eea424f004e",
+      "bytes": 1437
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+vendor_id,customer_id,po_number,invoice_number,invoice_date,gross_amount_usd,tax_rate,line_items_count,payee_iban
+V-4471,C-7781,PO-55119,INV-SV-0665,2026-10-02,3150.00,0.0825,1,AT611904300234573201
