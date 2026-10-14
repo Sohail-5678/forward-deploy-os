@@ -126,6 +126,10 @@ npm run baseline                          # the brittle recorded script failing 
 npm run screenshots -- http://localhost:3000   # regenerate og.png and the portal screenshot
 ```
 
+## Deploy
+
+The repository is connected to Vercel: every push to `main` deploys https://forward-deploy-os.vercel.app. To deploy your own copy, import the repository in Vercel and set `CHECKPOINT_SECRET` (`npm run secret` prints one); every other variable is optional. Hosting runs on the free Hobby plan.
+
 ## Use the MCP server with Claude
 
 The portal is exposed as three guarded tools (`search_purchase_order`, `get_invoice_form_schema`, `submit_invoice`). A model can submit invoices but can never approve an exception: anything that needs a human is escalated and not posted.
