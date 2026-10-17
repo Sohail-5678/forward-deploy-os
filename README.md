@@ -17,6 +17,8 @@ Vendor exports drift without notice (renamed columns, new date and money formats
 
 ## How it works
 
+Prefer pictures? [docs/notes/diagrams.html](docs/notes/diagrams.html) explains the project in six diagrams: the problems and fixes, the 8-node flow, schema healing, the browser agent, the security layers, and where the engine runs. It is one self-contained HTML file (GitHub shows its source; download it or clone the repo and open it in any browser).
+
 ```mermaid
 flowchart LR
   subgraph Browser tab
